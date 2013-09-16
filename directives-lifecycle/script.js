@@ -1,6 +1,6 @@
 'use strict';
 
-var linkTag = -1;
+var linkTag = -1, compileTag = -1;
 
 angular.module('tngDirectiveLifecycle', [])
 .directive('tngLifecycle', function() {
