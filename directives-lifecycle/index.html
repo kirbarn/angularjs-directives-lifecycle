@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Directive's lifecycle demo</title>
+
+	<script src="../lib/angular.js"></script>
+	<script src="./script.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body ng-app="tngDirectiveLifecycle">
+	<h1 class="link0">Directive's lifecycle demo</h1>
+	<div tng-lifecycle ng-repeat="i in [0,1,2]" index="{{i}}">
+		<div tng-lifecycle ></div>
+	</div>
+
+</body>
+</html>
