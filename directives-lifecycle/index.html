@@ -10,8 +10,14 @@
 </head>
 <body ng-app="tngDirectiveLifecycle">
 	<h1 class="link0">Directive's lifecycle demo</h1>
+
+	<h2>Compile, link, and controller</h2>
+	<div tng-lifecycle ng-repeat="i in [0,1,2]" index="{{i}}"></div>
+	<div tng-lifecycle></div>
+
+	<h2>Pre- and post-link</h2>
 	<div tng-lifecycle ng-repeat="i in [0,1,2]" index="{{i}}">
-		<div tng-lifecycle ></div>
+		<div tng-lifecycle-child></div>
 	</div>
 
 </body>
