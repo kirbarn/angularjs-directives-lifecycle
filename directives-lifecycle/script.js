@@ -4,60 +4,35 @@ var compileTag = -1, linkTag = -1;
 
 angular.module('tngDirectiveLifecycle', [])
 .directive('tngLifecycle', function() {
-
-	console.log('[tng-lifecycle]: constructor');
+	console.log('[tng-lifecycle]: construction');
 
 	return {
-		controller: function($scope, $element, $attrs) {
+		controller: function($scope) {
 			console.log('[tng-lifecycle]: controller');
-			$element.addClass('controller');
 		},
-		compile: function(tElement, tAttrs) {
+		compile: function(tElement) {
 			console.log('[tng-lifecycle]: compile');
 
 			tElement.addClass('pretty');
-			tElement.append('<span>compile tag: ' + ++compileTag + '</span><br>');
+			tElement.append('compile tag: ' + ++compileTag + '<br>');
+
+			var preElement;
 
 			return {
-				pre: function (scope, iElement, iAttrs, controller) {
+				pre: function(scope, iElement) {
+					preElement = iElement;
+
 					console.log('[tng-lifecycle]: pre-link');
 
-					iElement.append('<span>pre-link tag: ' + ++linkTag + '</span><br>');
+					iElement.append('pre-link tag: ' + ++linkTag + '<br>');
+					iElement.append('tElement === iElement? => ' + (tElement === iElement) + '<br>');
 				},
-				post: function (scope, iElement, iAttrs, controller) {
+				post: function(scope, iElement) {
 					console.log('[tng-lifecycle]: post-link');
-					console.log('[tng-lifecycle]: tElement === iElement? => ' + (tElement === iElement));
 
-					iElement.append('<span>post-link tag: ' + ++linkTag + '</span>');
-				}
-			};
-		}
-	};
-})
-.directive('tngLifecycleChild', function() {
-	console.log('[tng-lifecycle-child]: constructor');
-
-	return {
-		controller: function($scope, $element, $attrs) {
-			console.log('[tng-lifecycle-child]: controller');
-		},
-		compile: function(tElement, tAttrs) {
-			console.log('[tng-lifecycle-child]: compile');
-
-			tElement.addClass('pretty');
-			tElement.append('<span>compile tag: ' + ++compileTag + '</span><br>');
-			tElement.append('<span>child</span><br>');
-
-			return {
-				pre: function (scope, iElement, iAttrs, controller) {
-					console.log('[tng-lifecycle-child]: pre-link');
-
-					iElement.append('<span>pre-link tag: ' + ++linkTag + '</span><br>');
-				},
-				post: function (scope, iElement, iAttrs, controller) {
-					console.log('[tng-lifecycle-child]: post-link');
-
-					iElement.append('<span>post-link tag: ' + ++linkTag + '</span><br>');
+					iElement.append('post-link tag: ' + ++linkTag + '<br>');
+					iElement.append('tElement === iElement? => ' + (tElement === iElement) + '<br>');
+					iElement.append('preElement === postElement? => ' + (preElement === iElement));
 				}
 			};
 		}
