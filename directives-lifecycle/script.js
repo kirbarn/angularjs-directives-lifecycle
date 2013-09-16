@@ -11,7 +11,7 @@ angular.module('tngDirectiveLifecycle', [])
 			// console.log('[tng-lifecycle]: tElement === iElement? => ' + (tElement === iElement));
 
 			// iElement.addClass('pretty');
-			// iElement.append('<span>link tag: ' + ++linkTag + '</span>');
+			// iElement.append('link tag: ' + ++linkTag);
 		}
 	};
 });
