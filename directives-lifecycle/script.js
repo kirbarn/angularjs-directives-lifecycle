@@ -1,16 +1,23 @@
 'use strict';
 
-var linkTag = -1;
+var linkTag = -1, compileTag = -1;
 
 angular.module('tngDirectiveLifecycle', [])
 .directive('tngLifecycle', function() {
 
 	return {
-		link: function(scope, iElement, iAttrs, controller) {
-			console.log('[tng-lifecycle]: link');
+		compile: function(tElement) {
+			console.log('[tng-lifecycle]: compile');
 
-			iElement.addClass('pretty');
-			iElement.append('link: ' + ++linkTag);
+			tElement.addClass('pretty');
+			tElement.append('compile tag: ' + ++compileTag + '<br>');
+
+			return function(scope, iElement) {
+				console.log('[tng-lifecycle]: link');
+
+				iElement.append('link: ' + ++linkTag + '<br>');
+				iElement.append('tElement === iElement? => ' + (tElement === iElement) + '<br>');
+			}
 		}
 	};
 });
