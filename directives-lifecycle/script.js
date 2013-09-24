@@ -7,11 +7,10 @@ angular.module('tngDirectiveLifecycle', [])
 
 	return {
 		link: function(scope, iElement, iAttrs, controller) {
-			// console.log('[tng-lifecycle]: link');
-			// console.log('[tng-lifecycle]: tElement === iElement? => ' + (tElement === iElement));
+			console.log('[tng-lifecycle]: link');
 
-			// iElement.addClass('pretty');
-			// iElement.append('link tag: ' + ++linkTag);
+			iElement.addClass('pretty');
+			iElement.append('link: ' + ++linkTag);
 		}
 	};
 });
