@@ -6,7 +6,7 @@ angular.module('tngDirectiveLifecycle', [])
 .directive('tngLifecycle', function() {
 
 	return {
-		link: function(scope, iElement, iAttrs, controller) {
+		link: function(scope, iElement) {
 			console.log('[tng-lifecycle]: link');
 
 			iElement.addClass('pretty');
