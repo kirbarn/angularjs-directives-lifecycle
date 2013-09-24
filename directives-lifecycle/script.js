@@ -7,6 +7,9 @@ angular.module('tngDirectiveLifecycle', [])
 	console.log('[tng-lifecycle]: construction');
 
 	return {
+		controller: function($scope) {
+			console.log('[tng-lifecycle]: controller');
+		},
 		compile: function(tElement) {
 			console.log('[tng-lifecycle]: compile');
 
