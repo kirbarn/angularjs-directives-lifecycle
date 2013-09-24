@@ -16,13 +16,24 @@ angular.module('tngDirectiveLifecycle', [])
 			tElement.addClass('pretty');
 			tElement.append('compile: ' + ++compileTag + '<br>');
 
-			return function(scope, iElement) {
-				console.log('[tng-lifecycle]: link');
+			var preElement;
 
-				// iElement.prepend('<h3>' + scope.i + '</h3>');
-				iElement.append('link: ' + ++linkTag + '<br>');
-				iElement.append('tElement === iElement? => ' + (tElement === iElement) + '<br>');
-			}
+			return {
+				pre: function(scope, iElement) {
+					preElement = iElement;
+
+					console.log('[tng-lifecycle]: pre-link');
+
+					iElement.append('pre-link: ' + ++linkTag + '<br>');
+				},
+				post: function(scope, iElement) {
+					console.log('[tng-lifecycle]: post-link');
+
+					// iElement.prepend('<h3>' + scope.i + '</h3>');
+					iElement.append('post-link: ' + ++linkTag + '<br>');
+					console.log('[tng-lifecycle]: link');
+				}
+			};
 		}
 	};
 });
