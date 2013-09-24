@@ -4,6 +4,7 @@ var linkTag = -1, compileTag = -1;
 
 angular.module('tngDirectiveLifecycle', [])
 .directive('tngLifecycle', function() {
+	console.log('[tng-lifecycle]: construction');
 
 	return {
 		compile: function(tElement) {
