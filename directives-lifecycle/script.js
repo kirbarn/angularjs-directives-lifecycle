@@ -10,11 +10,12 @@ angular.module('tngDirectiveLifecycle', [])
 			console.log('[tng-lifecycle]: compile');
 
 			tElement.addClass('pretty');
-			tElement.append('compile tag: ' + ++compileTag + '<br>');
+			tElement.append('compile: ' + ++compileTag + '<br>');
 
 			return function(scope, iElement) {
 				console.log('[tng-lifecycle]: link');
 
+				// iElement.prepend('<h3>' + scope.i + '</h3>');
 				iElement.append('link: ' + ++linkTag + '<br>');
 				iElement.append('tElement === iElement? => ' + (tElement === iElement) + '<br>');
 			}
