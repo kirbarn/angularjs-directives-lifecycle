@@ -10,7 +10,7 @@ angular.module('tngDirectiveLifecycle', [])
 			console.log('[tng-lifecycle]: link');
 
 			iElement.addClass('pretty');
-			iElement.append('<code>link()</code> call order <b>' + ++linkTag + '</b>');
+			iElement.append('<code>link()</code> call order: <b>' + ++linkTag + '</b>');
 		}
 	};
 });
