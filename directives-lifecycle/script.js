@@ -1,6 +1,6 @@
 'use strict';
 
-var linkTag = -1;
+var linkTag = 0;
 
 angular.module('tngDirectiveLifecycle', [])
 .directive('tngLifecycle', function() {
@@ -10,7 +10,7 @@ angular.module('tngDirectiveLifecycle', [])
 			console.log('[tng-lifecycle]: link');
 
 			iElement.addClass('pretty');
-			iElement.append('link: ' + ++linkTag);
+			iElement.append('<code>link()</code> call order <b>' + ++linkTag + '</b>');
 		}
 	};
 });
