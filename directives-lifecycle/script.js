@@ -15,7 +15,7 @@ angular.module('tngDirectiveLifecycle', [])
 			return function(scope, iElement) {
 				console.log('[tng-lifecycle]: link');
 
-				iElement.append('<code>link()</code> call order <b>' + ++linkTag + '</b><br>');
+				iElement.append('<code>link()</code> call order: <b>' + ++linkTag + '</b><br>');
 				iElement.append('*** tElement === iElement? => ' + (tElement === iElement) + '<br>');
 			}
 		}
