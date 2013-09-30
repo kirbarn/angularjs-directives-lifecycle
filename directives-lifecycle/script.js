@@ -14,7 +14,7 @@ angular.module('tngDirectiveLifecycle', [])
 			console.log('[tng-lifecycle]: compile');
 
 			tElement.addClass('pretty');
-			tElement.append('compile: ' + ++compileTag + '<br>');
+			tElement.append('<code>compile()</code> call order: <b>' + ++compileTag + '</b><br>');
 
 			var preElement;
 
@@ -24,13 +24,13 @@ angular.module('tngDirectiveLifecycle', [])
 
 					console.log('[tng-lifecycle]: pre-link');
 
-					iElement.append('pre-link: ' + ++linkTag + '<br>');
+					iElement.append('<code>pre()</code> (pre-link) call order <b>' + ++linkTag + '</b><br>');
 				},
 				post: function(scope, iElement) {
 					console.log('[tng-lifecycle]: post-link');
 
 					// iElement.prepend('<h3>' + scope.i + '</h3>');
-					iElement.append('post-link: ' + ++linkTag + '<br>');
+					iElement.append('<code>post()</code> (post-link) call order <b>' + ++linkTag + '</b><br>');
 					console.log('[tng-lifecycle]: link');
 				}
 			};
